@@ -1,5 +1,22 @@
 .container {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+}
+
+.epicContainer {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.epicImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.epicCaption {
+  margin-top: 10px;
 }
