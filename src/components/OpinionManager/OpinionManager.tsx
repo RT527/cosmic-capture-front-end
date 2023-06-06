@@ -1,10 +1,16 @@
+// npm modules
+import { useState } from 'react'
+import useSound from 'use-sound'
+
 // assets
 import bean from '../../assets/icons/bean.png'
 import noBean from '../../assets/icons/noBean.png'
-import { useState } from 'react'
+import up from '../../assets/audio/up.wav'
+import down from '../../assets/audio/down.wav'
 // types
 import { Profile } from '../../types/models'
 import { OpinionManagerFormData } from '../../types/forms'
+
 
 interface OpinionManagerProps {
 	profile: Profile;
@@ -17,6 +23,9 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
   const [hover, setHover] = useState<number | null>(null)
   const [comment, setComment] = useState<string>('')
 
+  const [rateUp] = useSound(up, { volume: 0.2 })
+  const [rateDown] = useSound(down, { volume: 0.2 })
+
   const ratingOptions = [ 1, 2, 3, 4, 5 ]
   const opinionCount = profile.opinionsReceived.length
   let opinionSum = 0
@@ -27,6 +36,9 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
   
   const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
     const newValue = parseInt(evt.currentTarget.id)
+
+    newValue > profileRating ? rateUp() : rateDown()
+
     handleOpinion({ value: newValue, profileId: profile.id, comment: comment })
   }
 
