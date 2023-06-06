@@ -77,4 +77,13 @@ async function changePassword(
   }
 }
 
-export { signup, getUser, logout, login, changePassword }
+async function deleteAccount(): Promise<void> {
+  await fetch(`${BASE_URL}/delete`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+    }
+  })
+}
+
+export { signup, getUser, logout, login, changePassword, deleteAccount }

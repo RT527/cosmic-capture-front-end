@@ -16,7 +16,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
-
+import * as opinionService from './services/opinionService'
 // styles
 import './App.css'
 
@@ -51,15 +51,23 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
-  const handleOpinion = async (formData: OpinionManagerFormData): Promise<void> => {
-    console.log(formData)
+  const handleOpinion = async(formData: OpinionManagerFormData): Promise<void> => {
+    try {
+      const updatedProfile = await opinionService.castOpinion(formData)
+
+      setProfiles(profiles.map(profile => (
+        profile.id === updatedProfile.id ? updatedProfile : profile
+      )))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} handleLogout={handleLogout} />} />
         <Route
           path="/profiles"
           element={
