@@ -1,6 +1,9 @@
 // css
 import styles from './Profiles.module.css'
 
+// components
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
+
 // types
 import { Profile } from '../../types/models'
 
@@ -15,11 +18,13 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
   
 
   return (
-    <main className={styles.container}>
-      <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map((profile: Profile) => (
-        <p key={profile.id}>{profile.name}</p>
-      ))}
+    <main className='list'>
+      {profiles.map((profile: Profile) =>
+        <ProfileCard
+          key={profile.id}
+          profile={profile}
+        />
+      )}
     </main>
   )
 }
