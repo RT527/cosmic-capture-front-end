@@ -22,6 +22,7 @@ import './App.css'
 
 // types
 import { User, Profile } from './types/models'
+import { OpinionManagerFormData } from './types/forms'
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
@@ -50,6 +51,10 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
+  const handleOpinion = async (formData: OpinionManagerFormData): Promise<void> => {
+    console.log(formData)
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -59,8 +64,9 @@ function App(): JSX.Element {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles
+              <Profiles 
                 profiles={profiles}
+                handleOpinion={handleOpinion}
               />
             </ProtectedRoute>
           }

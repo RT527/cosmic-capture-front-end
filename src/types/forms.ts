@@ -1,6 +1,10 @@
 /* ---------==== custom forms ====--------- */
 
-
+export interface OpinionManagerFormData {
+  value: number;
+  profileId: number;
+  comment: string;
+}
 
 /* ---------===== auth forms =====--------- */
 
