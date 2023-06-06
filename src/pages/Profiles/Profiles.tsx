@@ -1,33 +1,18 @@
-// npm modules
-import { useState, useEffect } from 'react'
-
-// services
-import * as profileService from '../../services/profileService'
-
 // css
 import styles from './Profiles.module.css'
 
 // types
 import { Profile } from '../../types/models'
 
-const Profiles = (): JSX.Element => {
-  const [profiles, setProfiles] = useState<Profile[]>([])
+interface ProfilesProps {
+	profiles: Profile[];
+}
 
-  useEffect((): void => {
-    const fetchProfiles = async (): Promise<void> => {
-      try {
-        const profileData: Profile[] = await profileService.getAllProfiles()
-        setProfiles(profileData)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchProfiles()
-  }, [])
+const Profiles = (props: ProfilesProps): JSX.Element => {
+  const { profiles } = props
 
-  if (!profiles.length) {
-    return <main className={styles.container}><h1>Loading...</h1></main>
-  }
+  if (!profiles.length) return <h1>No profiles yet</h1>
+  
 
   return (
     <main className={styles.container}>
@@ -38,5 +23,4 @@ const Profiles = (): JSX.Element => {
     </main>
   )
 }
- 
 export default Profiles
