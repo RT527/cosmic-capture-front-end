@@ -1,4 +1,3 @@
-// npm modules
 import { NavLink } from 'react-router-dom'
 
 // types
@@ -13,25 +12,47 @@ interface NavBarProps {
 }
 
 const NavBar = (props: NavBarProps): JSX.Element => {
-  const { user, handleLogout } = props
-  
+  const { user, handleLogout } = props;
+
   return (
-    <nav>
-      {user ?
-        <ul>
-          <li>Welcome, {user.name}</li>
-          <li><NavLink to="/profiles">Profiles</NavLink></li>
-          <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
-          <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
-        </ul>
-      :
-        <ul>
-          <li><NavLink to="/auth/login">Log In</NavLink></li>
-          <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
-        </ul>
-      }
+    <nav className={styles.navbar}>
+      <ul>
+        <li className={styles.welcome}>Welcome, {user?.name}</li>
+        {user ? (
+          <>
+            <li>
+              <NavLink activeClassName={styles.active} to="/profiles">
+                Profiles
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName={styles.active} to="" onClick={handleLogout}>
+                LOG OUT
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName={styles.active} to="/auth/change-password">
+                Change Password
+              </NavLink>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <NavLink activeClassName={styles.active} to="/auth/login">
+                Log In
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName={styles.active} to="/auth/signup">
+                Sign Up
+              </NavLink>
+            </li>
+          </>
+        )}
+      </ul>
     </nav>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

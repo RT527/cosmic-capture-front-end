@@ -1,3 +1,62 @@
-.container {
-  color:azure
+.navbar {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+  background-color: #333;
+}
+
+.navbar ul li a.active {
+  background-color: #555;
+}
+
+.welcome {
+  font-weight: bold;
+}
+
+.navbar ul li:last-child a {
+  padding: 8px;
+  background-color: #0088ff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.navbar ul li:last-child a:hover {
+  background-color: #00aaff;
+}
+
+.navbar ul li:last-child a::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  mask: url('path-to-rocket-icon.svg');
+  mask-size: cover;
+}
+
+.active {
+  background-color: #555;
 }
