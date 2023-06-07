@@ -14,7 +14,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
   return (
     <nav className={styles.navbar}>
       <NavLink to="/">
-        <img src={logo} alt="Meow Meow Bean" />
+        <img className={styles.logo} src={logo} alt="Meow Meow Bean" />
       </NavLink>
       {user ? (
         <ul>
@@ -39,11 +39,13 @@ const NavBar = (props: NavBarProps): JSX.Element => {
         <ul>
           <li>
             <NavLink className={styles.active} to="/auth/login">
+              <span className={styles.rocketButton}>&nbsp;</span>
               Log In
             </NavLink>
           </li>
           <li>
             <NavLink className={styles.active} to="/auth/signup">
+              <span className={styles.rocketButton}>&nbsp;</span>
               Sign Up
             </NavLink>
           </li>
