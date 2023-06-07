@@ -1,6 +1,6 @@
 import styles from './Landing.module.css'
 // assets
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo.png'
 // service
 import * as authService from '../../services/authService'
 // types
