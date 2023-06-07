@@ -1,11 +1,13 @@
 .container {
   display: flex;
-  align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 16px;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding-top: 125px;
 }
 
-.container > p {
-  margin: 8px;
+.cardWrapper {
+  flex: 0 0 calc(33.33% - 16px);
+  margin-bottom: 16px;
 }
