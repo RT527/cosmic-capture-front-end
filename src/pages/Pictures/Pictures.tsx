@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { User } from '../../types/models'
+import { User } from '../../types/models';
 
+import styles from './Pictures.module.css';
 
 interface PicturesProps {
   user: User | null;
@@ -29,14 +30,20 @@ const Pictures = ({ user }: PicturesProps) => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Recent Natural Image</h1>
-      {imageUrl && <img src={imageUrl} alt="Recent Natural Image" />}
+      <h1>Hello, {user ? '🪐 ' + user.name + '! 🚀' : '🪐 Galactic Voyager! 🚀'}</h1>
+      {imageUrl && (
+        <div className={styles.epicContainer}>
+          <img className={styles.epicImage} src={imageUrl} alt="Recent Natural Image" />
+        </div>
+      )}
     </div>
   );
 };
 
 export default Pictures;
+
 
 
 
