@@ -1,14 +1,10 @@
-// npm modules
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-// services
 import * as authService from '../../services/authService'
 
-// css
 import styles from './Login.module.css'
 
-// types
 import { AuthPageProps } from '../../types/props'
 import { LoginFormData } from '../../types/forms'
 import { handleErrMsg } from '../../types/validators'
@@ -51,34 +47,28 @@ const LoginPage = (props: AuthPageProps): JSX.Element => {
 
   return (
     <main className={styles.container}>
-      <h1>Log In</h1>
-      <p className={styles.message}>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          Email
-          <input
-            type="text"
-            value={email}
-            name="email"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Password
-          <input
-            type="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-          />
-        </label>
-        <div>
-          <Link to="/">Cancel</Link>
-          <button className={styles.button} disabled={isFormInvalid()}>
-            Log In
-          </button>
-        </div>
-      </form>
+      <div className={styles.card}>
+        <h1>Log In</h1>
+        <p className={styles.message}>{message}</p>
+        <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+          <label className={styles.label}>
+            Email
+            <input type="text" value={email} name="email" onChange={handleChange} />
+          </label>
+          <label className={styles.label}>
+            Password
+            <input type="password" value={password} name="password" onChange={handleChange} />
+          </label>
+          <div>
+            <Link to="/" className={styles.cancelButton}>
+              Cancel
+            </Link>
+            <button className={styles.loginButton} disabled={isFormInvalid()}>
+              Log In
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   )
 }
