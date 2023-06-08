@@ -1,36 +1,48 @@
-// import React, { useEffect, useState } from 'react'
-// import styles from './Pictures.module.css'
-// import { User } from '../../types/models'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-// interface PicturesProps {
-//   user: User | null
-// }
+import { User } from '../../types/models'
 
-// interface EpicData {
-//   url: string
-//   caption: string
-// }
 
-// const Pictures: React.FC<PicturesProps> = ({ user }) => {
-//   const [epicData, setEpicData] = useState<EpicData | null>(null)
+interface PicturesProps {
+  user: User | null;
+}
 
-//   useEffect(() => {
-//     fetchMostRecentEpicImage()
-//   }, [])
+const Pictures = ({ user }: PicturesProps) => {
+  const [imageUrl, setImageUrl] = useState('');
 
-//   const fetchMostRecentEpicImage = async () => {
-//     try {
-//       const response = await fetch('http://localhost:3001/api/epic/image')
-//       if (response.ok) {
-//         const data = await response.json()
-//         setEpicData({ url: data.url, caption: data.caption })
-//       } else {
-//         console.error('Error fetching EPIC image:', response.status, response.statusText)
-//       }
-//     } catch (error) {
-//       console.error('Error fetching EPIC image:', error)
-//     }
-//   }
+  useEffect(() => {
+    const fetchImageUrl = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BACK_END_SERVER_URL}/api/epics`);
+        setImageUrl(response.data.url);
+      } catch (error) {
+        console.log('Error fetching image URL:', error);
+      }
+    };
+
+    fetchImageUrl();
+  }, []);
+
+  if (!user) {
+    return <p>Please log in to view the pictures.</p>;
+  }
+
+  return (
+    <div>
+      <h1>Recent Natural Image</h1>
+      {imageUrl && <img src={imageUrl} alt="Recent Natural Image" />}
+    </div>
+  );
+};
+
+export default Pictures;
+
+
+
+
+
+
 
 //   return (
 //     <main className={styles.container}>
@@ -48,43 +60,4 @@
 //   )
 // }
 
-// export default Pictures
-
-import React, { useEffect, useState } from 'react';
-import styles from './Pictures.module.css';
-
-const Pictures: React.FC = () => {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchEpicImage();
-  }, []);
-
-  const fetchEpicImage = async () => {
-    try {
-      const response = await fetch(
-
-      );
-      if (response.ok) {
-        setImageUrl(response.url);
-      } else {
-        console.error('Error fetching EPIC image:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error('Error fetching EPIC image:', error);
-    }
-  };
-
-  return (
-    <main className={styles.container}>
-      {imageUrl && (
-        <div className={styles.epicContainer}>
-          <img src={imageUrl} alt="EPIC Image" className={styles.epicImage} />
-        </div>
-      )}
-    </main>
-  );
-};
-
-export default Pictures;
-
+// export default Pictures;
