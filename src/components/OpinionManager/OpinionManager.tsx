@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import useSound from 'use-sound'
 
-import bean from '../../assets/icons/bean.png'
-import noBean from '../../assets/icons/noBean.png'
+import star from '../../assets/icons/star.png'
+import noStar from '../../assets/icons/noStar.png'
 import up from '../../assets/audio/houston-up.wav'
 import down from '../../assets/audio/houston-down.wav'
 
@@ -60,8 +60,8 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
               onClick={handleClick}
               onMouseOver={handleHover}
               onMouseLeave={handleHover}
-              src={rating <= (hover ?? profileRating) ? bean : noBean}
-              alt="Bean Symbol"
+              src={rating <= (hover ?? profileRating) ? star : noStar}
+              alt="Star Symbol"
               className={styles.ratingIcon}
             />
           ))}
