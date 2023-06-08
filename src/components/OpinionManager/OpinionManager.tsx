@@ -3,8 +3,8 @@ import useSound from 'use-sound'
 
 import bean from '../../assets/icons/bean.png'
 import noBean from '../../assets/icons/noBean.png'
-import up from '../../assets/audio/up.wav'
-import down from '../../assets/audio/down.wav'
+import up from '../../assets/audio/houston-up.wav'
+import down from '../../assets/audio/houston-down.wav'
 
 import { Profile } from '../../types/models'
 import { OpinionManagerFormData } from '../../types/forms'
