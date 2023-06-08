@@ -25,6 +25,11 @@ const NavBar = (props: NavBarProps): JSX.Element => {
             </NavLink>
           </li>
           <li>
+            <NavLink className={styles.active} to="/pictures">
+              Pictures
+            </NavLink>
+          </li>
+          <li>
             <NavLink className={styles.active} to="" onClick={handleLogout}>
               LOG OUT
             </NavLink>
