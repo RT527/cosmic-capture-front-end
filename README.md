@@ -2,7 +2,7 @@
 
 Cosmic Capture is a web application that allows users to explore and interact with the daily pictures of the Earth captured by the Earth Polychromatic Imaging Camera (EPIC) instrument aboard the DSCOVR satellite. Users can view the stunning imagery, share ratings, and leave comments for the daily "Blue Marble" picture of the day.
 
-![App screenshot]()
+![App screenshot](https://github.com/RT527/cosmic-capture-front-end/blob/main/src/assets/screenshot.png)
 
 ## How it works 📗
 
