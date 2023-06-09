@@ -26,11 +26,13 @@ const Landing = (props: LandingProps): JSX.Element => {
   return (
     <main className={styles.container}>
       <h1>Cosmic Capture <br/> Moons</h1>
-      <img src={logo} alt="a yummy" />
+      <img src={logo} alt="camera rocket" className={styles.logo} />
+
       { user &&
-        <button onClick={handleDeleteAccount}>
+        <button className={styles.deleteButton} onClick={handleDeleteAccount}>
           DELETE ACCOUNT
         </button>
+
       }
     </main>
   )
