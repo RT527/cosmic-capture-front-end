@@ -28,6 +28,7 @@ Once they are signed up, users can:
 * Netlify
 * Git
 * Github
+* Blue Marble API
 
 ## Attributions 🤩
 
