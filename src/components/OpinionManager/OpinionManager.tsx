@@ -1,10 +1,10 @@
 import { useState } from 'react'
-// import useSound from 'use-sound' <-- giving issues during deployment
+// import useSound from 'use-sound'  <-- giving issues during deployment
 
 import star from '../../assets/icons/star.png'
 import noStar from '../../assets/icons/noStar.png'
-// import up from '../../assets/audio/houston-up.wav'
-// import down from '../../assets/audio/houston-down.wav'
+// import up from '../../assets/audio/houston-up.wav' 
+// import down from '../../assets/audio/houston-down.wav' <-- giving issues during deployment
 
 import { Profile } from '../../types/models'
 import { OpinionManagerFormData } from '../../types/forms'
@@ -23,7 +23,7 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
   const [comment, setComment] = useState<string>('')
 
   // const [rateUp] = useSound(up, { volume: 0.2 })
-  // const [rateDown] = useSound(down, { volume: 0.2 })
+  // const [rateDown] = useSound(down, { volume: 0.2 }) <-- giving issues during deployment
 
   const ratingOptions = [1, 2, 3, 4, 5]
   const opinionCount = profile.opinionsReceived.length
@@ -36,7 +36,7 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
   const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
     const newValue = parseInt(evt.currentTarget.id)
 
-    // newValue > profileRating ? rateUp() : rateDown()
+    // newValue > profileRating ? rateUp() : rateDown() <-- giving issues during deployment
 
     handleOpinion({ value: newValue, profileId: profile.id, comment: comment })
   }
