@@ -1,17 +1,17 @@
-import styles from './Profiles.module.css';
-import ProfileCard from '../../components/ProfileCard/ProfileCard';
-import { Profile } from '../../types/models';
-import { OpinionManagerFormData } from '../../types/forms';
+import styles from './Profiles.module.css'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import { Profile } from '../../types/models'
+import { OpinionManagerFormData } from '../../types/forms'
 
 interface ProfilesProps {
-  profiles: Profile[];
-  handleOpinion: (formData: OpinionManagerFormData) => Promise<void>;
+  profiles: Profile[]
+  handleOpinion: (formData: OpinionManagerFormData) => Promise<void>
 }
 
 const Profiles = (props: ProfilesProps): JSX.Element => {
-  const { profiles } = props;
+  const { profiles } = props
 
-  if (!profiles.length) return <h1>No profiles yet sorry</h1>;
+  if (!profiles.length) return <h1>No profiles yet sorry</h1>
 
   return (
     <main className={styles.container}>
@@ -24,7 +24,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
         </div>
       ))}
     </main>
-  );
-};
+  )
+}
 
-export default Profiles;
+export default Profiles

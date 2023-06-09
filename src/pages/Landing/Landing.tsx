@@ -8,7 +8,7 @@ import { User } from '../../types/models'
 
 interface LandingProps {
   user: User | null
-  handleLogout: ()=> void;
+  handleLogout: ()=> void
 }
 
 const Landing = (props: LandingProps): JSX.Element => {

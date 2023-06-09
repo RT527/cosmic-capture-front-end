@@ -5,8 +5,8 @@ import { OpinionManagerFormData } from "../../types/forms"
 import OpinionManager from '../OpinionManager/OpinionManager'
 
 interface ProfileCardProps {
-  profile: Profile;
-  handleOpinion: (formData: OpinionManagerFormData) => Promise<void>;
+  profile: Profile
+  handleOpinion: (formData: OpinionManagerFormData) => Promise<void>
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
@@ -29,4 +29,4 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   )
 }
 
-export default ProfileCard;
+export default ProfileCard

@@ -18,6 +18,18 @@
 
 .epicImage {
   width: 100%;
-  max-height: 400px;
+  max-height: 500px; 
   object-fit: contain;
+}
+
+.caption {
+  font-size: 18px;
+  margin-top: 10px;
+  color: black;
+}
+
+.date {
+  font-size: 14px;
+  color: gray;
+  margin-top: 5px;
 }

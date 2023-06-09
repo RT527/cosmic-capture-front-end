@@ -12,8 +12,8 @@ import { OpinionManagerFormData } from '../../types/forms'
 import styles from './OpinionManager.module.css'
 
 interface OpinionManagerProps {
-  profile: Profile;
-  handleOpinion: (formData: OpinionManagerFormData) => Promise<void>;
+  profile: Profile
+  handleOpinion: (formData: OpinionManagerFormData) => Promise<void>
 }
 
 const OpinionManager = (props: OpinionManagerProps): JSX.Element => {

@@ -1,15 +1,15 @@
-import { NavLink } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-import { User } from '../../types/models';
-import styles from './NavBar.module.css';
+import { NavLink } from 'react-router-dom'
+import logo from '../../assets/logo.png'
+import { User } from '../../types/models'
+import styles from './NavBar.module.css'
 
 interface NavBarProps {
-  user: User | null;
-  handleLogout: () => void;
+  user: User | null
+  handleLogout: () => void
 }
 
 const NavBar = (props: NavBarProps): JSX.Element => {
-  const { user, handleLogout } = props;
+  const { user, handleLogout } = props
 
   return (
     <nav className={styles.navbar}>
@@ -55,7 +55,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
         </ul>
       )}
     </nav>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
