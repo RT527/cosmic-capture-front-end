@@ -51,11 +51,11 @@
 
 .navbar ul li:last-child a {
   padding: 8px;
-  background-color: #0088ff;
+  background-color: lightcyan;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  border-radius: 50%;
+  border-radius: 15%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
