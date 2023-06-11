@@ -52,28 +52,3 @@ const Pictures = ({ user }: PicturesProps) => {
 }
 
 export default Pictures
-
-
-
-
-
-
-
-
-//   return (
-//     <main className={styles.container}>
-//       <h1>Hello, {user ? user.name : '🪐 Galactic Voyager! 🚀'}</h1>
-
-//       {epicData && (
-//         <div className={styles.epicContainer}>
-//           <img src={epicData.url} alt={epicData.caption} className={styles.epicImage} />
-//           {epicData.caption && (
-//             <h2 className={styles.epicCaption}>{epicData.caption}</h2>
-//           )}
-//         </div>
-//       )}
-//     </main>
-//   )
-// }
-
-// export default Pictures
