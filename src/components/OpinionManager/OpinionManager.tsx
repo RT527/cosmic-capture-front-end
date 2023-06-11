@@ -6,9 +6,8 @@ import noStar from '../../assets/icons/noStar.png'
 // import up from '../../assets/audio/houston-up.wav' 
 // import down from '../../assets/audio/houston-down.wav' <-- giving issues during deployment
 
-import { Profile } from '../../types/models'
+import { Profile, Opinion } from '../../types/models'
 import { OpinionManagerFormData } from '../../types/forms'
-
 import styles from './OpinionManager.module.css'
 
 interface OpinionManagerProps {
@@ -35,7 +34,6 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
 
   const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
     const newValue = parseInt(evt.currentTarget.id)
-
     // newValue > profileRating ? rateUp() : rateDown() <-- giving issues during deployment
 
     handleOpinion({ value: newValue, profileId: profile.id, comment: comment })
@@ -48,6 +46,13 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
       setHover(null)
     }
   }
+
+  const getCommentForProfile = (): string => {
+    const opinion = profile.opinionsReceived.find((opinion: Opinion) => opinion.comment !== '')
+    return opinion ? opinion.comment : ''
+  }
+
+  const initialComment = getCommentForProfile()
 
   return (
     <div className={styles.card}>
@@ -68,9 +73,9 @@ const OpinionManager = (props: OpinionManagerProps): JSX.Element => {
         </div>
         <input
           type="text"
-          value={comment}
+          value={comment || initialComment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Add a comment"
+          placeholder={initialComment ? '' : 'Add a comment'}
           className={styles.commentInput}
         />
       </section>
