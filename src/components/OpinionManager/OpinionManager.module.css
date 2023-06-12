@@ -1,5 +1,5 @@
 .card {
-  width: 350px; /* Adjust the width as per your requirement */
+  width: 350px; 
   background-color: #222;
   padding: 16px;
   border-radius: 8px;
@@ -20,8 +20,8 @@
 }
 
 .ratingIcon {
-  width: 40px; /* Adjust the size as per your requirement */
-  height: 40px; /* Adjust the size as per your requirement */
+  width: 40px; 
+  height: 40px; 
   transition: transform 0.2s ease-in-out;
 }
 
