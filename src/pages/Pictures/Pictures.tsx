@@ -17,7 +17,7 @@ const Pictures = ({ user }: PicturesProps) => {
   useEffect(() => {
     const fetchImageData = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACK_END_SERVER_URL}/api/epics/20190530011359`) 
+        const response = await axios.get(`${import.meta.env.VITE_BACK_END_SERVER_URL}/api/epics/20190530011359`)
         const { url, caption, date } = response.data
         setImageUrl(url)
         setCaption(caption)
@@ -26,7 +26,7 @@ const Pictures = ({ user }: PicturesProps) => {
         console.log('Error fetching image data:', error)
       }
     }
-  
+
     fetchImageData()
   }, [])
   
